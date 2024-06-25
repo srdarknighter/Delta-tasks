@@ -1,0 +1,1 @@
+3 5-8,15 1 1-7 0,2,4,6 database-backup.sh

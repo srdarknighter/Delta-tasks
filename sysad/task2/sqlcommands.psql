@@ -1,0 +1,26 @@
+create DATABASE records;
+\c records;
+-- this is basically an alternative to the method of alias : submitTask so instead of making a file n mentee s directory 
+-- we populate an sql table with task submission details
+-- ask for user input from terminal for username and task submission details for 1,2 and 3 append the responses
+
+CREATE TABLE taskdetails_web(
+    username VARCHAR PRIMARY KEY,
+    task1 VARCHAR NOT NULL,
+    task2 VARCHAR NOT NULL,
+    task3 VARCHAR NOT NULL
+);
+
+CREATE TABLE taskdetails_app(
+    username VARCHAR PRIMARY KEY,
+    task1 VARCHAR NOT NULL,
+    task2 VARCHAR NOT NULL,
+    task3 VARCHAR NOT NULL
+);
+
+CREATE TABLE taskdetails_sysad(
+    username VARCHAR PRIMARY KEY,
+    task1 VARCHAR,
+    task2 VARCHAR,
+    task3 VARCHAR
+);
