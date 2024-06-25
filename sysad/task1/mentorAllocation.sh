@@ -10,7 +10,7 @@ declare -A mentor_capacity
 
 while IFS=' ' read -r mentor domain cap;do
     mentor_capacity["$mentor"] = "$cap"
-done </home/anirudh-s-space/sysad/sysad_exercises/task1/mentorDetails.txt
+done <./mentorDetails.txt
 
 read -p "Enter userid: " userid
 read -p "Enter password: " password
@@ -24,7 +24,7 @@ if [ "$userid" = clubadmin ] && [ "$password" = joemama ]; then
         while IFS=' ' read -r userid domains;do
             if echo "$domains" | grep -q "web" ;then
                 if [ ${mentor_capacity["$i"]} -ne 0 ];then
-                    echo "$userid" | sudo tee -a /home/clubadmin/mentors/web/$i/allocatedMentees.txt
+                    echo "$userid" | tee -a /home/clubadmin/mentors/web/$i/allocatedMentees.txt
                     oldcap = "${mentor_capacity["$i"]}"
                     newcap = $((oldcap - 1))
                     mentor_capacity["$i"] = "$newcap"
@@ -38,7 +38,7 @@ if [ "$userid" = clubadmin ] && [ "$password" = joemama ]; then
         while IFS=' ' read -r userid domains;do
             if echo "$domains" | grep -q "app" ;then
                 if [ ${mentor_capacity["$i"]} -ne 0 ];then
-                    echo "$userid" | sudo tee -a /home/clubadmin/mentors/app/$i/allocatedMentees.txt
+                    echo "$userid" | tee -a /home/clubadmin/mentors/app/$i/allocatedMentees.txt
                     oldcap = "${mentor_capacity["$i"]}"
                     newcap = $((oldcap - 1))
                     mentor_capacity["$i"] = "$newcap"
@@ -51,7 +51,7 @@ if [ "$userid" = clubadmin ] && [ "$password" = joemama ]; then
         while IFS=' ' read -r userid domains;do
             if echo "$domains" | grep -q "sysad" ;then
                 if [ ${mentor_capacity["$i"]} -ne 0 ];then
-                    echo "$userid" | sudo tee -a /home/clubadmin/mentors/sysad/$i/allocatedMentees.txt
+                    echo "$userid" | tee -a /home/clubadmin/mentors/sysad/$i/allocatedMentees.txt
                     oldcap = "${mentor_capacity["$i"]}"
                     newcap = $((oldcap - 1))
                     mentor_capacity["$i"] = "$newcap"

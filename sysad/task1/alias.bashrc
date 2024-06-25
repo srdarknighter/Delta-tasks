@@ -1,0 +1,6 @@
+alias userGen= "./userGen.sh"
+alias domainPref= "./domainPref.sh"
+alias mentorAllocation= "./mentorAllocation.sh"
+alias submitTask= "./submitTask.sh"
+alias displayStatus= "./displayStatus.sh"
+alias deRegister= "./deRegister.sh"
