@@ -8,7 +8,9 @@ services:
     ports:
       - "81:5432"
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - type: volume
+        source: postgres_data
+        target: /var/lib/postgresql/data
     restart: always 
 
   apache2:
