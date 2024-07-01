@@ -5,6 +5,7 @@ def task_web(cursor,username):
     task3 = input("Completed task 3? ")
     command = f"INSERT INTO taskdetails_web(username,task1,task2,task3) VALUES(%s,%s,%s,%s)"
     cursor.execute(command,(username,task1,task2,task3))
+    con.commit()
 
 def task_app(cursor,username):
     task1 = input("Completed task 1? ")
@@ -12,6 +13,7 @@ def task_app(cursor,username):
     task3 = input("Completed task 3? ")
     command = f"INSERT INTO taskdetails_app(username,task1,task2,task3) VALUES(%s,%s,%s,%s)"
     cursor.execute(command,(username,task1,task2,task3))
+    con.commit()
 
 def task_sysad(cursor,username):
     task1 = input("Completed task 1? ")
@@ -19,12 +21,34 @@ def task_sysad(cursor,username):
     task3 = input("Completed task 3? ")
     command = f"INSERT INTO taskdetails_sysad(username,task1,task2,task3) VALUES(%s,%s,%s,%s)"
     cursor.execute(command,(username,task1,task2,task3))
+    con.commit()
 
 username = input("Enter the username")
 password = input("Enter the password")
 
 con = psycopg2.connect("host=postgres user=postgres dbname=records")
 cursor=con.cursor()
+cursor.execute("CREATE TABLE taskdetails_web(
+    username VARCHAR PRIMARY KEY,
+    task1 VARCHAR NOT NULL,
+    task2 VARCHAR NOT NULL,
+    task3 VARCHAR NOT NULL
+)")
+cursor.execute("CREATE TABLE taskdetails_app(
+    username VARCHAR PRIMARY KEY,
+    task1 VARCHAR NOT NULL,
+    task2 VARCHAR NOT NULL,
+    task3 VARCHAR NOT NULL
+)")
+
+cursor.execute("CREATE TABLE taskdetails_sysad(
+    username VARCHAR PRIMARY KEY,
+    task1 VARCHAR,
+    task2 VARCHAR,
+    task3 VARCHAR
+)")
+
+con.commit()
 
 
 flag = False
