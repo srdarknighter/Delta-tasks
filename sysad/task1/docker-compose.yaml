@@ -1,7 +1,6 @@
 # volumes have been created to make sure the data doesnt get wiped away even though the compose is restarted
 # run docker-compose up to start it
 #  install pip, psycopg-binary, python3
-# copying all scripts to script_runner by using docker cp command
 services:
   postgres:
     container_name: postgres
@@ -26,7 +25,9 @@ services:
     depends_on:
       - postgres
     volumes:
-      - /sysad:/home/anirudh-s-space/sysad tasks
+      - type: bind
+        source: /home/anirudh-s-space/sysad tasks
+        target: /sysad
     tty: true
     stdin_open: true
     command: bash -c "apt-get update && apt-get install python3 && apt-get install nano && apt-get install pip && pip install psycopg2-binary && tail -f /dev/null"
