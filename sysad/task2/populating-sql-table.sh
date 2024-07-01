@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-#DIDNT WORK PYTHON CODE WORKS
+#DIDNT WORK PYTHON CODE WORKS JUST TRIED TO DO IN SH FORMAT 
 #run it in the app environemnt and then send request to the postgres container
 #idea is that we will take user input for username and password and cross verufy with the database
 #since we dont have one jsut gonna take the password as lol
