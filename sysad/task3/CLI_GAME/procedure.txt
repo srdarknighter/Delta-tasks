@@ -1,0 +1,16 @@
+in server script have a list of questions for that particular round with the options and correct answer
+after every round call the question function to input question with mcq and answer
+every round can last for 30 secs
+
+add points based on responses and update in the database with update() function
+call leaderboard function to display leaderboard from database after every subsequent round in the command line itself
+after displaying leaderboard question() is called to input question
+
+clients should get questions that arent made by themselves
+
+user-autentication while connecting to server
+have a database with userdetails and password 
+
+have a new user function to add user details and password into the database
+
+hash the passwords before entering them into the database

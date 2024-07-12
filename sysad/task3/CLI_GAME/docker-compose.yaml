@@ -1,0 +1,24 @@
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    ports:
+      - "81:5432"
+    volumes:
+      - type: volume  
+        source: postgres_data
+        target: /var/lib/postgresql/data
+    restart: always 
+
+  script_runner:
+    image: ubuntu:20.04
+    container_name: script_runner
+    depends_on:
+      - postgres
+    volumes:
+      - type: bind
+        source: /home/anirudh-s-space/sysad tasks
+        target: /sysad
+    tty: true
+    stdin_open: true
+    command: bash -c "apt-get update && apt-get install python3 && apt-get install nano && apt-get install pip && pip install psycopg2-binary && tail -f /dev/null"

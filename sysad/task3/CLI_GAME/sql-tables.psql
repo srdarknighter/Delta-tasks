@@ -1,0 +1,12 @@
+create database CLI_GAME;
+\c game_players;
+
+create table users(
+    username varchar(20) primary KEY,
+    password varchar NOT NULL
+)
+
+create table leaderboard(
+    username varchar(20) NOT NULL,
+    points int NOT NULL
+)
